@@ -6,7 +6,7 @@ server {
         proxy_pass http://eshop-admin-ui:8080/admin;
     }
 
-    location / {
+    location /plague-brush {
         proxy_pass http://eshop-ui:8080/;
     }
 }

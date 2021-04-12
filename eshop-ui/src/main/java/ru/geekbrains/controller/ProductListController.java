@@ -16,7 +16,7 @@ import ru.geekbrains.service.PictureService;
 import java.util.Optional;
 
 @Controller
-@RequestMapping
+@RequestMapping("/plague-brush")
 public class ProductListController {
 
     private final ProductService productService;
