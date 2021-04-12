@@ -1,1 +1,1 @@
-e-shop
+Spring-eShop
