@@ -1,0 +1,12 @@
+server {
+    listen 80;
+    server_name localhost;
+
+    location /admin {
+        proxy_pass http://eshop-admin-ui:8080/admin;
+    }
+
+    location / {
+        proxy_pass http://eshop-ui:8080/;
+    }
+}
