@@ -41,5 +41,11 @@ public class CartController {
         return "redirect:/cart";
     }
 
+    @GetMapping
+    public String cartPrice(Model model) {
+        model.addAttribute("cartPrice", cartService.getLineItems());
+        return "cart";
+    }
+
 
 }
