@@ -6,7 +6,7 @@
 
     <include file="db.changelog-20210401-145520446.xml" relativeToChangelogFile="true"/>
 
-    <changeSet id="1617288926583-19" author="ivan_od">
+    <changeSet id="1617288926583-29" author="ivan_od">
         <sqlFile dbms="mysql"
                  endDelimiter="\nGO"
                  relativeToChangelogFile="true"
