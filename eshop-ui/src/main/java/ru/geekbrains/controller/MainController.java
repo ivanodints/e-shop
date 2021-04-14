@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 @RequestMapping
 public class MainController {
 
-    @GetMapping
+
     public String indexPage(Model model, HttpSession httpSession) {
         return "index";
     }

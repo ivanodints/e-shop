@@ -2,8 +2,8 @@ server {
     listen 80;
     server_name localhost;
 
-    location /plague-brush/admin {
-        proxy_pass http://eshop-admin-ui:8080/plague-brush/admin;
+    location /admin {
+        proxy_pass http://eshop-admin-ui:8080/secure/admin;
     }
 
     location /plague-brush {

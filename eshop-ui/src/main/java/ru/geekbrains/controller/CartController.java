@@ -27,7 +27,6 @@ public class CartController {
     }
 
 
-
     @GetMapping
     public String cartPage(Model model) {
         model.addAttribute("lineItems", cartService.getLineItems());
@@ -39,12 +38,6 @@ public class CartController {
         ProductDTO productDTO= productService.findById(cartItemDTO.getProductId()).orElseThrow(Exception::new);
         cartService.addProductQty(productDTO, cartItemDTO.getQty());
         return "redirect:/cart";
-    }
-
-    @GetMapping
-    public String cartPrice(Model model) {
-        model.addAttribute("cartPrice", cartService.getLineItems());
-        return "cart";
     }
 
 
