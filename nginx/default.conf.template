@@ -2,11 +2,11 @@ server {
     listen 80;
     server_name localhost;
 
-    location=/admin {
+    location /admin {
         proxy_pass http://eshop-admin-ui:8007/secure/admin;
     }
 
-    location=/plague-brush {
+    location /plague-brush {
         proxy_pass http://eshop-ui:8007/plague-brush;
     }
 }
