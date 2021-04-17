@@ -14,7 +14,9 @@ public interface CartService {
 
     void removeProductQty(ProductDTO productDTO,int qty);
 
+    void removeProduct(ProductDTO productDTO);
+
     List<LineItem> getLineItems();
 
-    BigDecimal getLinePrice();
+
 }

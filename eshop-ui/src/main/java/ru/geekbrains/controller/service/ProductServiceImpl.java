@@ -1,16 +1,17 @@
 package ru.geekbrains.controller.service;
 
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import ru.geekbrains.controller.DTO.ProductDTO;
-import ru.geekbrains.persist.model.Picture;
 import ru.geekbrains.persist.model.Product;
 import ru.geekbrains.persist.repo.ProductRepository;
 import ru.geekbrains.persist.repo.specification.ProductSpecification;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -31,7 +32,6 @@ public class ProductServiceImpl implements ProductService {
                 .map(ProductService::mapToDTO);
     }
 
-
     @Override
     public List<ProductDTO> findByManufacturer (Long manufacturerId) {
         Specification<Product> spec = ProductSpecification.fetchPictures();
@@ -43,11 +43,43 @@ public class ProductServiceImpl implements ProductService {
                 .collect(Collectors.toList());
     }
 
+
+
+
     @Override
-    public Page<ProductDTO> findWithFilter(String productTitleFilter,
+    public Page<ProductDTO> findWithFilter(Long categoryId,
+                                           Long manufacturerId,
                                            Integer pageNumber,
-                                           Integer tableSize,
-                                           String sort) {
+                                           Integer tableSize) {
+
+        Specification<Product> spec = Specification.where(null);
+
+
+        if (categoryId != null) {
+            spec = spec.and(ProductSpecification.equalByCategory(categoryId));
+        }
+
+        if (manufacturerId != null) {
+            spec = spec.and(ProductSpecification.equalByManufacturer(manufacturerId));
+        }
+
+        Page<Long> ids = productRepository.findAll(spec, PageRequest.of(pageNumber - 1, tableSize))
+                .map(product1 -> product1.getId());
+
+        List<ProductDTO> allByIds = new ArrayList<>();
+        for (Product product : productRepository.findAllByIds(ids.getContent())) {
+            ProductDTO productDTO =ProductService.mapToDTO(product);
+            allByIds.add(productDTO);
+        }
+        return new PageImpl<>(allByIds, PageRequest.of(pageNumber - 1, tableSize), ids.getTotalElements());
+    }
+
+
+    @Override
+    public Page<ProductDTO> findWithTitleFilter(String productTitleFilter,
+                                                String sort,
+                                                Integer pageNumber,
+                                                Integer tableSize) {
 
         Specification<Product> spec = Specification.where(null);
 
@@ -67,7 +99,6 @@ public class ProductServiceImpl implements ProductService {
         }
     }
 
-
     @Override
     public List<ProductDTO> findByCategory(Long categoryId) {
         Specification<Product> spec = ProductSpecification.fetchPictures();
@@ -78,9 +109,6 @@ public class ProductServiceImpl implements ProductService {
                 .map(ProductService::mapToDTO)
                 .collect(Collectors.toList());
     }
-
-
-
 
 
 

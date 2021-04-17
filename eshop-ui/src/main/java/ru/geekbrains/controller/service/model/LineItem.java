@@ -16,6 +16,8 @@ public class LineItem implements Serializable {
     private Integer qty;
 
 
+
+
     public LineItem(ProductDTO productDTO) {
         this.productId = productDTO.getId();
         this.productDTO = productDTO;
@@ -23,6 +25,7 @@ public class LineItem implements Serializable {
 
     public LineItem() {
     }
+
 
     public Long getProductId() {
         return productId;
@@ -47,7 +50,6 @@ public class LineItem implements Serializable {
     public void setQty(Integer qty) {
         this.qty = qty;
     }
-
 
     @JsonIgnore
     public BigDecimal getTotal() {

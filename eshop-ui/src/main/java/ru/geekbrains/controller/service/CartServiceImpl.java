@@ -37,16 +37,25 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
+    public void removeProduct(ProductDTO productDTO) {
+        LineItem lineItem = new LineItem(productDTO);
+        int currentQty = lineItems.getOrDefault(lineItem, 0);
+            lineItems.remove(lineItem);
+        }
+
+
+    @Override
     public List<LineItem> getLineItems() {
-        lineItems.forEach(LineItem::setQty);
+        for (Map.Entry<LineItem, Integer> entry : lineItems.entrySet()) {
+            LineItem key = entry.getKey();
+            Integer value = entry.getValue();
+            key.setQty(value);
+        }
         return new ArrayList<>(lineItems.keySet());
     }
 
-    @Override
-    public BigDecimal getLinePrice() {
 
-        return null;
-    }
+
 }
 
 
