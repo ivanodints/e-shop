@@ -12,6 +12,7 @@ import ru.geekbrains.controller.service.model.LineItem;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 
@@ -64,5 +65,6 @@ public class CartController {
 
         return "redirect:/cart";
     }
+
 
 }

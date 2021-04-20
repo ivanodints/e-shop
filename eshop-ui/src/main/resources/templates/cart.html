@@ -66,7 +66,7 @@
                             <ul class="menu-extra">
                                 <li class="search search__open hidden-xs"><span class="ti-search"></span></li>
                                 <li><a href="login-register.html"><span class="ti-user"></span></a></li>
-                                <li><a th:href="@{/cart}"><span class="ti-shopping-cart" ></span></a></li>
+                                <li><a th:href="@{/cart}"><span class="ti-shopping-cart"></span></a></li>
                             </ul>
                         </div>
                     </div>
@@ -152,22 +152,18 @@
                                         </td>
 
                                         <td class="product-subtotal">
-                                            <p th:text="${cartItem.qty} * ${cartItem.productDTO.price}" />
+                                            <p th:text="${cartItem.qty} * ${cartItem.productDTO.price}"></p>
                                         </td>
 
-                                        <!-- DELETE -->
                                         <th>
-                                            <form th:method="delete"
-                                                  th:action="@{/cart/product/{prodId}/delete/{prodQty}(prodId=${cartItem.productId}, prodQty = ${cartItem.qty},
+                                            <form th:method="delete" th:action="@{/cart/product/{prodId}/delete/{prodQty}(prodId=${cartItem.productId}, prodQty = ${cartItem.qty},
                                                   id=${cartItem.productId}, qty = ${cartItem.qty})}">
                                                 <input type="hidden" name="productId" th:value="${cartItem.productId}">
                                                 <input type="hidden" name="qty" th:value="${cartItem.qty}">
-                                                <input style="width: 5%; background-color: white;"
-                                                    type="image" th:src="@{/images/icons/close-icon.png}" alt="not_found_pict" />
+                                                <input style="width: 5%; background-color: white;" type="image"
+                                                    th:src="@{/images/icons/close-icon.png}" alt="not_found_pict" />
                                             </form>
                                         </th>
-
-
                                     </tr>
                                 </tbody>
                             </table>
@@ -175,7 +171,7 @@
                         <div class="row">
                             <div class="col-md-8 col-sm-7 col-xs-12">
                                 <div class="buttons-cart">
-                                    <input type="submit" value="Update Cart" th:method="post" th:action="@{/cart}" />
+                                    <input type="submit" value="Обновить" th:method="post" th:action="@{/cart}" />
                                     <a th:href="@{./categories}">Продолжить покупки</a>
                                 </div>
                             </div>

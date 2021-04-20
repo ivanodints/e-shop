@@ -2,16 +2,15 @@ package ru.geekbrains.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import ru.geekbrains.controller.service.CartService;
 import ru.geekbrains.controller.service.ProductService;
 import ru.geekbrains.persist.repo.CategoryRepository;
 import ru.geekbrains.persist.repo.ManufacturerRepository;
 import ru.geekbrains.persist.repo.ProductRepository;
 import ru.geekbrains.service.PictureService;
 
+import java.util.Map;
 import java.util.Optional;
 
 @Controller
@@ -24,11 +23,12 @@ public class ProductListController {
     private final ManufacturerRepository manufacturerRepository;
     private final ProductRepository productRepository;
 
+
     public ProductListController(ProductService productService,
                                  CategoryRepository categoryRepository,
                                  PictureService pictureService,
                                  ManufacturerRepository manufacturerRepository,
-                                 ProductRepository productRepository) {
+                                 ProductRepository productRepository, CartService cartService) {
         this.productService = productService;
         this.categoryRepository = categoryRepository;
         this.pictureService = pictureService;
@@ -46,40 +46,20 @@ public class ProductListController {
                                  Long pictureId,
                                  Model model) {
 
-
-
         model.addAttribute("allProd", productRepository.findAll());
         model.addAttribute("allCat", categoryRepository.findAll());
         model.addAttribute("manufacturers", manufacturerRepository.findAll());
         model.addAttribute("pict", pictureService.showAllPictures());
         model.addAttribute("products", productService.findWithFilter(categoryId,manufacturerId, pageNumber, tableSize));
-
-
         return "shop-sidebar";
     }
-
-//    @GetMapping("/categories/manufacturer")
-//    public String manufacturersPage(@RequestParam(value = "manufacturerId", required = false) Long manufacturerId,
-//                                 Long pictureId,
-//                                 Model model) {
-//
-//
-//        model.addAttribute("manufacturers", manufacturerRepository.findAll());
-//        model.addAttribute("pr", productService.findByManufacturer(manufacturerId));
-//        model.addAttribute("pict", pictureService.showAllPictures());
-//
-//
-//        return "shop-sidebar";
-//    }
-
-
-
 
     @GetMapping("/product/{id}")
     public String showProduct(@PathVariable("id") Long id, Model model) throws Exception {
         model.addAttribute("product", productService.findById(id).orElseThrow(Exception::new));
         return "product-details-sticky-right";
     }
+
 
 
 
