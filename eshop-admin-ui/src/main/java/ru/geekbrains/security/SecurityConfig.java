@@ -42,7 +42,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/webjars/**").permitAll()
                 .antMatchers("/admin/**").authenticated()
                 .antMatchers("/resources/**").permitAll()
-                .antMatchers("/plague-brush/**").permitAll()
+                .antMatchers("/**").permitAll()
 
                 .and()
                 .formLogin()
