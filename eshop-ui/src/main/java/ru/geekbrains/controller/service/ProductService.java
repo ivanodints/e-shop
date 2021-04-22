@@ -15,24 +15,33 @@ public interface ProductService {
 
 
 
-    Page<ProductDTO> findWithFilter(String productTitleFilter,
+    Page<ProductDTO> findWithFilter(Long categoryId,
+                                    Long manufacturerId,
                                     Integer pageNumber,
-                                    Integer tableSize,
-                                    String sort
-                                    );
+                                    Integer tableSize
+                                     );
 
-
-    Optional <ProductDTO> findById(Long id);
+    Page<ProductDTO> findWithTitleFilter(String productTitleFilter,
+                                         String sort,
+                                         Integer pageNumber,
+                                         Integer tableSize);
 
     List<ProductDTO> findByCategory(Long categoryId);
 
+    Optional <ProductDTO> findById(Long id);
+
     List<ProductDTO> findByManufacturer(Long manufacturerId);
 
-    static ProductDTO mapToDTO(Product p) {
+    public static ProductDTO mapToDTO(Product p) {
         return new ProductDTO(
-                p.getId(),p.getTitle(), p.getPrice(), p.getManufacturer(),p.getCategory(),
+                p.getId(),
+                p.getTitle(),
+                p.getPrice(),
+                p.getManufacturer(),
+                p.getCategory(),
                 p.getPictures().size() > 0 ? p.getPictures().get(0).getId() : null,
                 p.getPictures().stream().map(Picture::getId).collect(Collectors.toList()));
     }
+
 
 }

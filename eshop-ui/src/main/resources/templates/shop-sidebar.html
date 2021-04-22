@@ -65,8 +65,8 @@
                             <ul class="menu-extra">
                                 <li class="search search__open hidden-xs"><span class="ti-search"></span></li>
                                 <li><a href="login-register.html"><span class="ti-user"></span></a></li>
-                                <li class="cart__menu"><span class="ti-shopping-cart"></span></li>
-<!--                                <li class="toggle__menu hidden-xs hidden-sm"><span class="ti-menu"></span></li>-->
+                                <li><a th:href="@{/cart}"><span class="ti-shopping-cart" ></span></a></li>
+
                             </ul>
                         </div>
                     </div>
@@ -77,66 +77,10 @@
         </header>
         <!-- End Header Style -->
         <div class="body__overlay"></div>
-        <!-- Start Offset Wrapper -->
-        <div class="offset__wrapper">
 
-
-            <!-- Start Cart Panel -->
-            <div class="shopping__cart">
-                <div class="shopping__cart__inner">
-                    <div class="offsetmenu__close__btn">
-                        <a href="#"><i class="zmdi zmdi-close"></i></a>
-                    </div>
-                    <div class="shp__cart__wrap">
-                        <div class="shp__single__product">
-                            <div class="shp__pro__thumb">
-                                <a href="#">
-                                    <img src="images/product/sm-img/1.jpg" alt="product images">
-                                </a>
-                            </div>
-                            <div class="shp__pro__details">
-                                <h2><a href="product-details.html">BO&Play Wireless Speaker</a></h2>
-                                <span class="quantity">QTY: 1</span>
-                                <span class="shp__price">$105.00</span>
-                            </div>
-                            <div class="remove__btn">
-                                <a href="#" title="Remove this item"><i class="zmdi zmdi-close"></i></a>
-                            </div>
-                        </div>
-                        <div class="shp__single__product">
-                            <div class="shp__pro__thumb">
-                                <a href="#">
-                                    <img src="images/product/sm-img/2.jpg" alt="product images">
-                                </a>
-                            </div>
-                            <div class="shp__pro__details">
-                                <h2><a href="product-details.html">Brone Candle</a></h2>
-                                <span class="quantity">QTY: 1</span>
-                                <span class="shp__price">$25.00</span>
-                            </div>
-                            <div class="remove__btn">
-                                <a href="#" title="Remove this item"><i class="zmdi zmdi-close"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <ul class="shoping__total">
-                        <li class="subtotal">Subtotal:</li>
-                        <li class="total__price">$130.00</li>
-                    </ul>
-                    <ul class="shopping__btn">
-                        <li><a href="cart.html">View Cart</a></li>
-                        <li class="shp__checkout"><a href="checkout.html">Checkout</a></li>
-                    </ul>
-                </div>
-            </div>
-            <!-- End Cart Panel -->
-        </div>
-        <!-- End Offset Wrapper -->
         <!-- Start Bradcaump area -->
         <div class="ht__bradcaump__area"
-
-             th:style="'background: url('+@{/images/bg/8.jpg}+') no-repeat scroll center center / cover;'"
-        >
+            th:style="'background: url('+@{/images/bg/8.jpg}+') no-repeat scroll center center / cover;'">
             <div class="ht__bradcaump__wrap">
                 <div class="container">
                     <div class="row">
@@ -186,9 +130,10 @@
                             <!-- Start Product Cat -->
 
                             <div class="htc__shop__cat">
-                                <h4 class="section-title-4">Категории</h4>
+                                <h4 class="section-title-4"><a th:href="@{/categories}" class="section-title-4">Категории</a></h4>
+
                                 <ul class="sidebar__list">
-                                    <li th:each="cat : ${categories}" >
+                                    <li th:each="cat : ${allCat}">
                                         <a th:href="@{/categories/(categoryId=${cat.id})}" th:text="${cat.title}"> </a>
                                     </li>
                                 </ul>
@@ -197,10 +142,11 @@
                             <!-- Start Color Cat -->
 
                             <div class="htc__shop__cat">
-                                <h4 class="section-title-4">Выбор производителя</h4>
+                                <h4 class="section-title-4"><a th:href="@{/categories}" class="section-title-4">Выбор производителя</a></h4>
                                 <ul class="sidebar__list">
-                                    <li th:each="manufact : ${manufacturers}" >
-                                        <a th:href="@{/categories/manufacturer/(manufacturerId=${manufact.id})}" th:text="${manufact.title}"> </a>
+                                    <li th:each="manufact : ${manufacturers}">
+                                        <a th:href="@{/categories/(manufacturerId=${manufact.id})}"
+                                            th:text="${manufact.title}"> </a>
                                     </li>
                                 </ul>
                             </div>
@@ -210,10 +156,12 @@
                             <!-- End Size Cat -->
                             <!-- Start Tag Area -->
                             <div class="htc__shop__cat">
-                                <h4 class="section-title-4">Тэги</h4>
+                                <h4 class="section-title-4"><a th:href="@{/categories}" class="section-title-4">Тэги</a></h4>
+
                                 <ul class="htc__tags">
-                                    <li th:each="manufact : ${manufacturers}" >
-                                        <a th:href="@{/categories/manufacturer/(manufacturerId=${manufact.id})}" th:text="${manufact.title}"> </a>
+                                    <li th:each="manufact : ${manufacturers}">
+                                        <a th:href="@{/categories/manufacturer/(manufacturerId=${manufact.id})}"
+                                            th:text="${manufact.title}"> </a>
                                     </li>
                                 </ul>
                             </div>
@@ -228,16 +176,6 @@
                                 <div class="producy__view__container">
                                     <!-- Start Short Form -->
                                     <div class="product__list__option">
-<!--                                        <div class="order-single-btn">-->
-<!--                                            <select class="select-color selectpicker">-->
-<!--                                                <option>Sort by newness</option>-->
-<!--                                                <option>Match</option>-->
-<!--                                                <option>Updated</option>-->
-<!--                                                <option>Title</option>-->
-<!--                                                <option>Category</option>-->
-<!--                                                <option>Rating</option>-->
-<!--                                            </select>-->
-<!--                                        </div>-->
                                         <div class="shp__pro__show">
                                             <span>Showing 1 - 4 of 25 results</span>
                                         </div>
@@ -250,8 +188,8 @@
 
                         <div class="container">
                             <div class="row">
-                                <div class="categories_product_area">
-                                    <div class="col-md-4" th:each="prod : ${products}" >
+                                <div class="categories_product_area" th:each="prod : ${products}">
+                                    <div class="col-md-4">
 
 
                                         <div class="pro__thumb">
@@ -273,48 +211,47 @@
                                             </ul>
                                         </div>
                                         <div class="product__details">
-                                            <h2 style="text-align: center" ><a th:text="${prod.title}">Simple Black Clock</a></h2>
-                                            <ul style="text-align: center" >
-                                                <li style="text-align: center; color: red"  th:text="${prod.price}">$10.00</li>
+                                            <h2 style="text-align: center"><a th:text="${prod.title}">Simple Black
+                                                    Clock</a></h2>
+                                            <ul style="text-align: center">
+                                                <li style="text-align: center; color: red" th:text="${prod.price}">
+                                                    $10.00</li>
                                             </ul>
                                         </div>
 
                                     </div>
+
                                 </div>
                             </div>
-<!--                            PAGINATION                       -->
 
-                            <nav aria-label="Page navigation example" class="pagination_area">
+                            <!--                            PAGINATION                       -->
+
+                            <nav style="text-align: center" aria-label="Page navigation example" class="">
 
                                 <ul class="pagination">
 
 
                                     <li class="page-item">
-                                        <a class="page-link"
-                                           th:if ="!${allProd.number <= 0}"
-                                           th:href="@{/categories(pageNumber= ${(allProd.number + 1)-1}, sizeTable=${allProd.getSize()},
-                           productTitleFilter=${param.productTitleFilter},
-                           sort=${param.sort})}"
-                                        >Previous</a>
+                                        <a class="page-link" th:if="!${products.number <= 0}" th:href="@{/categories(pageNumber= ${(products.number + 1)-1}, sizeTable=${allProd.size()},
+                                            productTitleFilter=${param.productTitleFilter},
+                                            sort=${param.sort})}">Previous</a>
                                     </li>
 
-                                    <li th:each="num: ${#numbers.sequence(1, allProd.totalPages)}"
-                                        th:classappend="${num == allProd.number + 1} ? 'active'"
-                                        class="page-item">
-                                        <a th:text="${num}"
-                                           th:href="@{/categories(pageNumber=${num}, sizeTable=${allProd.getSize()},
-                           productTitleFilter=${param.productTitleFilter},
-                           sort=${param.sort})}"
-                                           class="page-link"><span th:if="${num == allProd.number + 1}" class="sr-only">(current)</span></a>
-                                    <li/>
+                                    <li th:each="num: ${#numbers.sequence(1, products.totalPages)}"
+                                        th:classappend="${num == products.number + 1} ? 'active'" class="page-item">
+                                        <a th:text="${num}" th:href="@{/categories(pageNumber=${num},
+                                           sizeTable=${allProd.size()},
+                                           productTitleFilter=${param.productTitleFilter},
+                                           sort=${param.sort})}" class="page-link"><span
+                                                th:if="${num == products.number + 1}"
+                                                class="sr-only">(current)</span></a>
+                                        <li />
 
                                     <li class="page-item">
-                                        <a class="page-link"
-                                           th:if ="!${allProd.number >= allProd.totalPages - 1}"
-                                           th:href="@{/categories(pageNumber= ${(allProd.number + 1)+1}, sizeTable=${allProd.getSize()},
-                           productTitleFilter=${param.productTitleFilter},
-                           sort=${param.sort})}"
-                                        >Next</a>
+                                        <a class="page-link" th:if="!${products.number >= products.totalPages - 1}"
+                                            th:href="@{/categories(pageNumber= ${(products.number + 1)+1}, sizeTable=${allProd.size()},
+                                            productTitleFilter=${param.productTitleFilter},
+                                            sort=${param.sort})}">Next</a>
                                     </li>
 
 

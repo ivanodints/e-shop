@@ -6,6 +6,7 @@ import ru.geekbrains.controller.service.model.LineItem;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public interface CartService {
@@ -14,7 +15,9 @@ public interface CartService {
 
     void removeProductQty(ProductDTO productDTO,int qty);
 
+    void removeProduct(ProductDTO productDTO);
+
     List<LineItem> getLineItems();
 
-    BigDecimal getLinePrice();
+
 }

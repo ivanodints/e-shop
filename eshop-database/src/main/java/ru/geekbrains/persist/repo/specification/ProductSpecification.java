@@ -23,9 +23,6 @@ public class ProductSpecification {
         return (root, query, cb) -> cb.equal(root.get("id"), id);
     }
 
-    public static Specification<Product> equalByCategory(long categoryId) {
-        return (root, query, cb) -> cb.equal(root.get("category").get("id"), categoryId);
-    }
 
     public static Specification<Product> equalByManufacturer(long manufacturerId) {
         return (root, query, cb) -> cb.equal(root.get("manufacturer").get("id"), manufacturerId);
@@ -38,6 +35,12 @@ public class ProductSpecification {
             return cb.isTrue(cb.literal(true));
         };
     }
+
+
+    public static Specification<Product> equalByCategory(long categoryId) {
+        return (root, query, cb) -> cb.equal(root.get("category").get("id"), categoryId);
+    }
+
 
 
 }
