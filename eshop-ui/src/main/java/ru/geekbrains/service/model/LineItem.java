@@ -1,4 +1,4 @@
-package ru.geekbrains.controller.service.model;
+package ru.geekbrains.service.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import ru.geekbrains.controller.DTO.ProductDTO;

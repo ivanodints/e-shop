@@ -1,4 +1,4 @@
-package ru.geekbrains.controller.service;
+package ru.geekbrains.service;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Service;
 import ru.geekbrains.controller.DTO.ProductDTO;
-import ru.geekbrains.controller.service.model.LineItem;
+import ru.geekbrains.service.model.LineItem;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
 @Service
