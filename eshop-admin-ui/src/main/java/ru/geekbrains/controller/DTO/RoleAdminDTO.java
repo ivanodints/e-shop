@@ -12,12 +12,12 @@ import java.util.List;
 
 public class RoleAdminDTO {
 
-    @Id
-    @NotEmpty
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Id
+//    @NotEmpty
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotEmpty
+//    @NotEmpty
     private String title;
 
     private List<User> users;

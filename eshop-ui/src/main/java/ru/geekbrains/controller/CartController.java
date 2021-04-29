@@ -6,13 +6,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.geekbrains.controller.DTO.CartItemDTO;
 import ru.geekbrains.controller.DTO.ProductDTO;
-import ru.geekbrains.controller.service.CartService;
-import ru.geekbrains.controller.service.ProductService;
-import ru.geekbrains.controller.service.model.LineItem;
+import ru.geekbrains.service.CartService;
+import ru.geekbrains.service.ProductService;
+import ru.geekbrains.service.model.LineItem;
 
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 
