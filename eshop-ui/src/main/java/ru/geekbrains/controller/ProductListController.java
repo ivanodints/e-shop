@@ -3,14 +3,13 @@ package ru.geekbrains.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import ru.geekbrains.controller.service.CartService;
-import ru.geekbrains.controller.service.ProductService;
+import ru.geekbrains.service.CartService;
+import ru.geekbrains.service.ProductService;
 import ru.geekbrains.persist.repo.CategoryRepository;
 import ru.geekbrains.persist.repo.ManufacturerRepository;
 import ru.geekbrains.persist.repo.ProductRepository;
 import ru.geekbrains.service.PictureService;
 
-import java.util.Map;
 import java.util.Optional;
 
 @Controller

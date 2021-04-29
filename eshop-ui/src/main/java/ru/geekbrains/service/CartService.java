@@ -19,5 +19,7 @@ public interface CartService {
 
     List<LineItem> getLineItems();
 
+    BigDecimal getSubTotal();
+
 
 }

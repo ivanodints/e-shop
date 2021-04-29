@@ -10,12 +10,12 @@ import java.io.Serializable;
 
 public class CategoryAdminDTO implements Serializable {
 
-    @Id
-    @NotEmpty
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Id
+//    @NotEmpty
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @NotEmpty
+//    @NotEmpty
     private String title;
 
     private long productCount;
