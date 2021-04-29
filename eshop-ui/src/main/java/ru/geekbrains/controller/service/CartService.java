@@ -1,11 +1,12 @@
-package ru.geekbrains.service;
+package ru.geekbrains.controller.service;
 
 import org.springframework.stereotype.Service;
 import ru.geekbrains.controller.DTO.ProductDTO;
-import ru.geekbrains.service.model.LineItem;
+import ru.geekbrains.controller.service.model.LineItem;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public interface CartService {
@@ -17,8 +18,6 @@ public interface CartService {
     void removeProduct(ProductDTO productDTO);
 
     List<LineItem> getLineItems();
-
-    BigDecimal getSubTotal();
 
 
 }

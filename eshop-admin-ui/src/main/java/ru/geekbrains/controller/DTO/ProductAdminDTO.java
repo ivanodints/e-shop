@@ -20,12 +20,12 @@ import java.util.stream.Collectors;
 
 public class ProductAdminDTO {
 
-//    @Id
-//    @NotEmpty
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @NotEmpty
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    @NotEmpty
+    @NotEmpty
     private String title;
 
 

@@ -9,12 +9,12 @@ import java.util.List;
 
 public class ManufacturerAdminDTO {
 
-//    @Id
-//    @NotEmpty
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @NotEmpty
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    @NotEmpty
+    @NotEmpty
     private String title;
 
     private List<Product> products;

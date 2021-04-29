@@ -14,15 +14,15 @@ import java.util.List;
 
 public class ProductDTO implements Serializable {
 
-//    @Id
-//    @NotEmpty
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Long id;
+    @Id
+    @NotEmpty
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private final Long id;
 
-//    @NotEmpty
-    private  String title;
+    @NotEmpty
+    private final String title;
 
-    private  BigDecimal price;
+    private final BigDecimal price;
 
     private  Manufacturer manufacturer;
 
@@ -32,8 +32,6 @@ public class ProductDTO implements Serializable {
 
     private  List<Long> pictureIds;
 
-    public ProductDTO() {
-    }
 
     public ProductDTO(@NotEmpty Long id, @NotEmpty String title, BigDecimal price, Manufacturer manufacturer, Category category, Long pictureId, List<Long> pictureIds) {
         this.id = id;

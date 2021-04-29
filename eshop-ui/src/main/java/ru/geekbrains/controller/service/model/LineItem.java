@@ -1,4 +1,4 @@
-package ru.geekbrains.service.model;
+package ru.geekbrains.controller.service.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import ru.geekbrains.controller.DTO.ProductDTO;
@@ -14,6 +14,8 @@ public class LineItem implements Serializable {
     private ProductDTO productDTO;
 
     private Integer qty;
+
+
 
 
     public LineItem(ProductDTO productDTO) {
