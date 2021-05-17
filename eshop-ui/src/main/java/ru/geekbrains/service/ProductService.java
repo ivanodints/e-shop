@@ -1,4 +1,4 @@
-package ru.geekbrains.controller.service;
+package ru.geekbrains.service;
 
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;

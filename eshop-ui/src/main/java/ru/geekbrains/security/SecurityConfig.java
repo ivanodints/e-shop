@@ -42,7 +42,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/webjars/**").permitAll()
                 .antMatchers("/admin/**").authenticated()
                 .antMatchers("/resources/**").permitAll()
-                .antMatchers("/**").permitAll()
                 .antMatchers("/plague-brush/**").permitAll()
 
                 .and()

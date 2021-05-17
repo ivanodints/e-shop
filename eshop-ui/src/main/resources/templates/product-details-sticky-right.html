@@ -30,6 +30,8 @@
     <!-- User style -->
     <link rel="stylesheet" th:href="@{/css/custom.css}">
 
+    <link th:href="@{/css/chat.css}" rel="stylesheet">
+
 
     <!-- Modernizr JS -->
     <script th:href="@{/js/vendor/modernizr-2.8.3.min.js}"></script>
@@ -58,7 +60,7 @@
                         <!-- Start MAinmenu Ares -->
 
                         <div class="col-md-8 col-lg-8 col-sm-6 col-xs-6">
-                            <nav class="mainmenu__nav hidden-xs hidden-sm">
+                            <nav class="mainmenu__nav hidden-xs hidden-sm"> </nav>
                         </div>
 
                         <!-- End MAinmenu Ares -->
@@ -66,7 +68,8 @@
                             <ul class="menu-extra">
                                 <li class="search search__open hidden-xs"><span class="ti-search"></span></li>
                                 <li><a href="login-register.html"><span class="ti-user"></span></a></li>
-                                <li class="cart__menu"><span class="ti-shopping-cart"></span></li>
+<!--                                <li class="cart__menu"><span class="ti-shopping-cart"></span></li>-->
+                                <li><a th:href="@{/cart}"><span class="ti-shopping-cart" ></span></a></li>
                             </ul>
                         </div>
                     </div>
@@ -172,12 +175,6 @@
                                 <div class="scroll-single-product mb--30">
                                     <img th:src="@{/picture/{id}(id = ${product.pictureId})}" alt="product images">
                                 </div>
-                                <!--                                <div class="scroll-single-product mb&#45;&#45;30">-->
-                                <!--                                    <img src="images/product-details/big-img/11.jpg" alt="full-image">-->
-                                <!--                                </div>-->
-                                <!--                                <div class="scroll-single-product mb&#45;&#45;30">-->
-                                <!--                                    <img src="images/product-details/big-img/12.jpg" alt="full-image">-->
-                                <!--                                </div>-->
                             </div>
                         </div>
                         <div th:class="@{sidebar-active col-md-5 col-lg-5 col-sm-7 col-xs-12 xmt-30}">
@@ -221,8 +218,7 @@
                 </div>
             </div>
         </section>
-        <!-- End Product Details -->
-        <!-- Start Product tab -->
+
         <section class="htc__product__details__tab bg__white pb--120">
             <div class="container">
 
@@ -256,31 +252,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- End Single Content -->
-                            <!-- Start Single Content -->
-                            <!-- <div role="tabpanel" id="sheet" class="product__tab__content fade">
-                                <div class="pro__feature">
-                                    <h2 class="title__6">Data sheet</h2>
-                                    <ul class="feature__list">
-                                        <li><a href="#"><i class="zmdi zmdi-play-circle"></i>Duis aute irure dolor in
-                                                reprehenderit in voluptate velit esse</a></li>
-                                        <li><a href="#"><i class="zmdi zmdi-play-circle"></i>Irure dolor in
-                                                reprehenderit in voluptate velit esse</a></li>
-                                        <li><a href="#"><i class="zmdi zmdi-play-circle"></i>Irure dolor in
-                                                reprehenderit in voluptate velit esse</a></li>
-                                        <li><a href="#"><i class="zmdi zmdi-play-circle"></i>Sed do eiusmod tempor
-                                                incididunt ut labore et </a></li>
-                                        <li><a href="#"><i class="zmdi zmdi-play-circle"></i>Sed do eiusmod tempor
-                                                incididunt ut labore et </a></li>
-                                        <li><a href="#"><i class="zmdi zmdi-play-circle"></i>Nisi ut aliquip ex ea
-                                                commodo consequat.</a></li>
-                                        <li><a href="#"><i class="zmdi zmdi-play-circle"></i>Nisi ut aliquip ex ea
-                                                commodo consequat.</a></li>
-                                    </ul>
-                                </div>
-                            </div> -->
-                            <!-- End Single Content -->
-                            <!-- Start Single Content -->
                             <div role="tabpanel" id="reviews" class="product__tab__content fade">
                                 <div class="review__address__inner">
                                     <!-- Start Single Review -->
@@ -367,140 +338,9 @@
                 </div>
             </div>
         </section>
-        <!-- End Product tab -->
-        <!-- Start Footer Area -->
-        <footer th:class="@{htc__foooter__area gray-bg}">
-            <div th:class="@{container}">
-                <div th:class="@{row}">
-                    <div th:class="@{footer__container clearfix}">
-                        <!-- Start Single Footer Widget -->
-                        <div th:class="@{col-md-3 col-lg-3 col-sm-6}">
-                            <div th:class="@{ft__widget}">
-                                <div th:class="@{ft__logo}">
-                                    <a th:href="@{./}">
-                                        <img th:src="@{/images/logo/logo.png}" alt="footer logo">
-                                    </a>
-                                </div>
-                                <div th:class="@{footer-address}">
-                                    <ul>
-                                        <li>
-                                            <div th:class="@{address-icon}">
-                                                <i th:class="@{zmdi zmdi-pin}"></i>
-                                            </div>
-                                            <div th:class="@{address-text}">
-                                                <p>194 Main Rd T, FS Rayed <br> VIC 3057, USA</p>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div th:class="@{address-icon}">
-                                                <i th:class="@{zmdi zmdi-email}"></i>
-                                            </div>
-                                            <div th:class="@{address-text}">
-                                                <a th:href=""> info@example.com</a>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div th:class="@{address-icon}">
-                                                <i th:class="@{zmdi zmdi-phone-in-talk}"></i>
-                                            </div>
-                                            <div th:class="@{address-text}">
-                                                <p>+012 345 678 102 </p>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <ul th:class="@{social__icon}">
-                                    <li><a href="#"><i class="zmdi zmdi-twitter"></i></a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-instagram"></i></a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-facebook"></i></a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-google-plus"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- End Single Footer Widget -->
-                        <!-- Start Single Footer Widget -->
-                        <div th:class="@{col-md-3 col-lg-2 col-sm-6 smt-30 xmt-30}">
-                            <div th:class="@{ft__widget}">
-                                <h2 th:class="@{ft__title}">Categories</h2>
-                                <ul th:class="@{footer-categories}">
-                                    <li><a th:href="@{shop-sidebar.html}">Men</a></li>
-                                    <li><a th:href="@{shop-sidebar.html}">Women</a></li>
-                                    <li><a th:href="@{shop-sidebar.html}">Accessories</a></li>
-                                    <li><a th:href="@{shop-sidebar.html}">Shoes</a></li>
-                                    <li><a th:href="@{shop-sidebar.html}">Dress</a></li>
-                                    <li><a th:href="@{shop-sidebar.html}">Denim</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- Start Single Footer Widget -->
-                        <div th:class="@{col-md-3 col-lg-2 col-sm-6 smt-30 xmt-30}">
-                            <div th:class="@{ft__widget}">
-                                <h2 th:class="@{ft__title}">Infomation</h2>
-                                <ul th:class="@{footer-categories}">
-                                    <li><a>About Us</a></li>
-                                    <li><a>Contact Us</a></li>
-                                    <li><a>Terms & Conditions</a></li>
-                                    <li><a>Returns & Exchanges</a></li>
-                                    <li><a>Shipping & Delivery</a></li>
-                                    <li><a>Privacy Policy</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- Start Single Footer Widget -->
-                        <div class="col-md-3 col-lg-3 col-lg-offset-1 col-sm-6 smt-30 xmt-30">
-                            <div class="ft__widget">
-                                <h2 class="ft__title">Newsletter</h2>
-                                <div class="newsletter__form">
-                                    <p>Subscribe to our newsletter and get 10% off your first purchase .</p>
-                                    <div class="input__box">
-                                        <div id="mc_embed_signup">
-                                            <form action="#" method="post" id="mc-embedded-subscribe-form"
-                                                name="mc-embedded-subscribe-form" class="validate" target="_blank"
-                                                novalidate>
-                                                <div id="mc_embed_signup_scroll" class="htc__news__inner">
-                                                    <div class="news__input">
-                                                        <input type="email" value="" name="EMAIL" class="email"
-                                                            id="mce-EMAIL" placeholder="Email Address" required>
-                                                    </div>
-                                                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                                                    <div style="position: absolute; left: -5000px;" aria-hidden="true">
-                                                        <input type="text" name="b_6bbb9b6f5827bd842d9640c82_05d85f18ef"
-                                                            tabindex="-1" value="">
-                                                    </div>
-                                                    <div class="clearfix subscribe__btn"><input type="submit"
-                                                            value="Send" name="subscribe" id="mc-embedded-subscribe"
-                                                            class="bst__btn btn--white__color">
+                    </div>
+                </div>
 
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Footer Widget -->
-                    </div>
-                </div>
-                <!-- Start Copyright Area -->
-                <div class="htc__copyright__area">
-                    <div class="row">
-                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                            <div class="copyright__inner">
-                                <div class="copyright">
-                                    <p>© 2017 <a th:href="">your website name</a>
-                                        All Right Reserved.</p>
-                                </div>
-                                <ul class="footer__menu">
-                                    <li><a th:href="@{/index.html}">Home</a></li>
-                                    <li><a th:href="@{/shop.html}">Product</a></li>
-                                    <li><a th:href="@{/contact.html}">Contact Us</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Copyright Area -->
             </div>
         </footer>
         <!-- End Footer Area -->
