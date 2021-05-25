@@ -14,12 +14,9 @@ import java.util.List;
 
 public class ProductDTO implements Serializable {
 
-//    @Id
-//    @NotEmpty
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private  Long id;
 
-//    @NotEmpty
     private  String title;
 
     private  BigDecimal price;
@@ -53,13 +50,6 @@ public class ProductDTO implements Serializable {
         this.title = product.getTitle();
     }
 
-//    public ProductDTO(@NotEmpty Long id, @NotEmpty String title, BigDecimal price, Long pictureId, List<Long> pictureIds) {
-//        this.id = id;
-//        this.title = title;
-//        this.price = price;
-//        this.pictureId = pictureId;
-//        this.pictureIds = pictureIds;
-//    }
 
     public Long getId() {
         return id;
@@ -95,6 +85,26 @@ public class ProductDTO implements Serializable {
 
     public List<Long> getPictureIds() {
         return pictureIds;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public void setPictureId(Long pictureId) {
+        this.pictureId = pictureId;
+    }
+
+    public void setPictureIds(List<Long> pictureIds) {
+        this.pictureIds = pictureIds;
     }
 
 }
