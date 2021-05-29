@@ -21,7 +21,6 @@ import java.util.stream.Collectors;
 @Scope(scopeName = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class CartServiceImpl implements CartService, Serializable {
 
-//    private final Map<LineItem, Integer> lineItems = new ConcurrentHashMap<>();
 
     private final Map<LineItem, Integer> lineItems;
 
@@ -62,19 +61,13 @@ public class CartServiceImpl implements CartService, Serializable {
         }
 
 
-//    @Override
-//    public List<LineItem> getLineItems() {
-//        for (Map.Entry<LineItem, Integer> entry : lineItems.entrySet()) {
-//            LineItem key = entry.getKey();
-//            Integer value = entry.getValue();
-//            key.setQty(value);
-//        }
-//        return new ArrayList<>(lineItems.keySet());
-//    }
-
     @Override
     public List<LineItem> getLineItems() {
-        lineItems.forEach(LineItem::setQty);
+        for (Map.Entry<LineItem, Integer> entry : lineItems.entrySet()) {
+            LineItem key = entry.getKey();
+            Integer value = entry.getValue();
+            key.setQty(value);
+        }
         return new ArrayList<>(lineItems.keySet());
     }
 

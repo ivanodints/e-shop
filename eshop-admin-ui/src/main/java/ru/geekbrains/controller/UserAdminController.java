@@ -30,25 +30,6 @@ public class UserAdminController {
     }
 
 
-
-//    @Secured({"ADMIN"})
-//    @GetMapping("/users")
-//    public String usersPage(Model model,
-//                           @RequestParam("userLoginFilter") Optional<String> userLoginFilter,
-//                           @RequestParam("page") Optional<Integer> page,
-//                           @RequestParam("tableSize") Optional<Integer> tableSize,
-//                           @RequestParam("sort") Optional<String> sort) {
-//
-//        Page<UserDTO> users = userService.findWithFilter(
-//                userLoginFilter.orElse(null),
-//                page.orElse(1) - 1,
-//                tableSize.orElse(5),
-//                sort.orElse(null)
-//        );
-//        model.addAttribute("users", users);
-//        return "users";
-//    }
-
     @GetMapping("/users")
     public String adminUsersPage(Model model) {
         model.addAttribute("activePage", "Users");

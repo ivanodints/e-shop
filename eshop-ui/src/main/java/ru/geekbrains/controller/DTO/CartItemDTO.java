@@ -4,7 +4,7 @@ public class CartItemDTO {
 
     private Long productId;
 
-    private  Integer qty;
+    private Integer qty;
 
     public Long getProductId() {
         return productId;

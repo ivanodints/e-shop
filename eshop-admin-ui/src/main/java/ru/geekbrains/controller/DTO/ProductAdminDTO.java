@@ -43,12 +43,6 @@ public class ProductAdminDTO {
     public ProductAdminDTO() {
     }
 
-//    public ProductDTO(@NotEmpty String title, @NotEmpty BigDecimal price, @NotEmpty Manufacturer manufacturer, @NotEmpty Category category) {
-//        this.title = title;
-//        this.price = price;
-//        this.manufacturer = manufacturer;
-//        this.category = category;
-//    }
 
     public ProductAdminDTO(Product product) {
         this.id = product.getId();
