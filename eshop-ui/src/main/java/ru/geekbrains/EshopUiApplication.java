@@ -10,7 +10,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @SpringBootApplication
 public class EshopUiApplication {
 
-    @Profile("!dev")
+    @Profile("!dev & !test")
     @Bean
     public BCryptPasswordEncoder passEncoder() {
         return new BCryptPasswordEncoder();

@@ -31,8 +31,8 @@ public class CartController {
 
     @GetMapping
     public String cartPage(Model model) {
-        model.addAttribute("lineItems", cartService.getLineItems());
 
+        model.addAttribute("lineItems", cartService.getLineItems());
 
         List<BigDecimal> collect = cartService.getLineItems().stream().map(LineItem::getTotal).collect(Collectors.toList());
 
@@ -46,7 +46,7 @@ public class CartController {
     }
 
     @PostMapping
-    public  String addToCart(CartItemDTO cartItemDTO) throws Exception {
+    public String addToCart(CartItemDTO cartItemDTO) throws Exception {
         ProductDTO productDTO= productService.findById(cartItemDTO.getProductId()).orElseThrow(Exception::new);
         cartService.addProductQty(productDTO, cartItemDTO.getQty());
         return "redirect:/categories";

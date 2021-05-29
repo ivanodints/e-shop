@@ -36,6 +36,8 @@ public class ProductAdminServiceImpl implements ProductAdminService, Serializabl
         this.pictureService = pictureService;
     }
 
+
+
     @Override
     public List<ProductAdminDTO> showAllProducts() {
         return productRepository.findAll().stream().map(ProductAdminDTO::new).collect(Collectors.toList());

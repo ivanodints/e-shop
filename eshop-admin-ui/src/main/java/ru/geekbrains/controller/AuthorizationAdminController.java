@@ -9,10 +9,9 @@ import org.springframework.web.servlet.ModelAndView;
 import ru.geekbrains.errors.NotFoundException;
 
 @Controller
-//@RequestMapping("/admin")
 public class AuthorizationAdminController {
 
-//    @GetMapping("/authorization")
+
 @GetMapping("/login")
     public String signForm() {
         return "authorization";

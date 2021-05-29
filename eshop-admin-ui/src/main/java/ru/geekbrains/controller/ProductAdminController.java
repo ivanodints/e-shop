@@ -29,29 +29,6 @@ public class ProductAdminController {
         this.manufacturerRepository = manufacturerRepository;
     }
 
-//    @Secured({"ADMIN"})
-//    @GetMapping("/products")
-//    public String usersPage(Model model,
-//                            @RequestParam("productTitleFilter") Optional<String> productTitleFilter,
-//                            @RequestParam("minPriceFilter") Optional<Integer> minPriceFilter,
-//                            @RequestParam("maxPriceFilter") Optional<Integer> maxPriceFilter,
-//                            @RequestParam("pageNumber") Optional<Integer> pageNumber,
-//                            @RequestParam("tableSize") Optional<Integer> tableSize,
-//                            @RequestParam("sort") Optional<String> sortBy) {
-//
-//        Page<ProductDTO> products = productService.findWithFilter(
-//                productTitleFilter.orElse(null),
-//                minPriceFilter.orElse(null),
-//                maxPriceFilter.orElse(null),
-//                pageNumber.orElse(1) - 1,
-//                tableSize.orElse(5),
-//                sortBy.orElse(null)
-//        );
-//
-//        model.addAttribute("products", products);
-//        return "products";
-//    }
-
     @Secured({"ADMIN"})
     @GetMapping("/products")
     public String adminProductsPage(Model model) {
@@ -191,7 +168,6 @@ public class ProductAdminController {
     @PostMapping("/manufacturer")
     public String adminUpsertManufacturer(Model model, RedirectAttributes redirectAttributes, Manufacturer manufacturer) {
         model.addAttribute("activePage", "Manufacturers");
-
         try {
             manufacturerRepository.save(manufacturer);
         } catch (Exception ex) {

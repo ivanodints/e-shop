@@ -1,0 +1,9 @@
+POST http://localhost:8081/send?user=Alice
+
+Si vis pacem, para bellum
+
+###
+
+POST http://localhost:8082/send?user=ivan
+
+Temet nosce

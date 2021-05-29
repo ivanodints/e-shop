@@ -38,6 +38,7 @@
         <module>eshop-picture-service</module>
         <module>eshop-admin-ui</module>
         <module>eshop-ui</module>
+        <module>rabbit-mq</module>
     </modules>
 
 </project>

@@ -59,9 +59,6 @@ public class ProductListController {
         return "product-details-sticky-right";
     }
 
-
-
-
 }
 
 
