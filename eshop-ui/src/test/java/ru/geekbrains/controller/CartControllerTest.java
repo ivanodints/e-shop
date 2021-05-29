@@ -9,10 +9,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import org.hamcrest.BaseMatcher;
 import org.hamcrest.Description;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.domain.Example;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
@@ -44,10 +46,45 @@ import java.util.Optional;
 @SpringBootTest(classes = EshopUiApplication.class)
 public class CartControllerTest {
 
+    @MockBean
     private CartService cartService;
 
     @Autowired
     private MockMvc mvc;
+
+    @Autowired
+    private ProductRepository productRepository;
+
+    @Autowired
+    private ManufacturerRepository manufacturerRepository;
+
+    @Autowired
+    private CategoryRepository categoryRepository;
+
+    private Product product1;
+    private Product product2;
+
+
+    @BeforeEach
+    public void createTestProduct(){
+        Category category1 = new Category("pants");
+        categoryRepository.save(category1);
+        Category category2 = new Category("boots");
+        categoryRepository.save(category2);
+
+        Manufacturer manufacturer1 = new Manufacturer("Nike");
+        manufacturerRepository.save(manufacturer1);
+        Manufacturer manufacturer2 = new Manufacturer("Puma");
+        manufacturerRepository.save(manufacturer2);
+
+        product1 = new Product("long-pants", new BigDecimal(100), category1, manufacturer1);
+        productRepository.save(product1);
+
+        product2 = new Product("slippers", new BigDecimal(50), category2, manufacturer2);
+        productRepository.save(product2);
+
+    }
+
 
     @Test
     public void cartPageTest() throws Exception {
@@ -59,37 +96,17 @@ public class CartControllerTest {
     }
 
 
-
     @Test
-    public void addToCartTest() throws Exception{
-
-//        cartService = new CartServiceImpl();
-//
-//        ProductDTO productDTO = new ProductDTO();
-//        productDTO.setId(1L);
-//        productDTO.setTitle("V8");
-//        productDTO.setPrice(new BigDecimal(2000));
-//        productDTO.setManufacturer(new Manufacturer("BMW"));
-//        productDTO.setCategory(new Category("Engine"));
-
-
-        ProductDTO productDTO = mock(ProductDTO.class);
-        cartService = mock(CartServiceImpl.class);
-
+    public void testAddToCart() throws Exception{
         mvc.perform(post("/cart")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
-                .param("productId", String.valueOf(productDTO.getId()))
+                .param("productId",Long.toString(product1.getId()))
                 .param("qty", "2")
-                .with(csrf())
-        )
-                .andExpect(status().is3xxRedirection())
+                )
+//                .andExpect(status().is3xxSuccessful())
                 .andExpect(view().name("redirect:/categories"));
 
-//        Optional<Category> opt = categoryRepository.findOne(Example.of(new Category("Cat")));
-//
-//        assertTrue(opt.isPresent());
-//        assertEquals("Cat", opt.get().getTitle());
-
+//        assertTrue(cartService.getLineItems().isEmpty());
+        
     }
-
 }
