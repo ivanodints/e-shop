@@ -47,7 +47,8 @@ public class CartController {
 
     @PostMapping
     public String addToCart(CartItemDTO cartItemDTO) throws Exception {
-        ProductDTO productDTO= productService.findById(cartItemDTO.getProductId()).orElseThrow(Exception::new);
+        ProductDTO productDTO= productService.findById(cartItemDTO.getProductId())
+                .orElseThrow(Exception::new);
         cartService.addProductQty(productDTO, cartItemDTO.getQty());
         return "redirect:/categories";
     }
