@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="EshopUiApplicationDev" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="eshop-ui" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="ru.geekbrains.EshopUiApplication" />
+    <option name="VM_PARAMETERS" value="-Dspring.profiles.active=dev" />
+    <option name="ALTERNATIVE_JRE_PATH" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
