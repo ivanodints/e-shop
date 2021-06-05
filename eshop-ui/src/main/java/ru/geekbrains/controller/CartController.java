@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.geekbrains.controller.DTO.CartItemDTO;
 import ru.geekbrains.controller.DTO.ProductDTO;
+import ru.geekbrains.errors.NotFoundException;
 import ru.geekbrains.service.CartService;
 import ru.geekbrains.service.ProductService;
 import ru.geekbrains.service.model.LineItem;
@@ -46,8 +47,9 @@ public class CartController {
     }
 
     @PostMapping
-    public String addToCart(CartItemDTO cartItemDTO) throws Exception {
-        ProductDTO productDTO= productService.findById(cartItemDTO.getProductId()).orElseThrow(Exception::new);
+    public String addToCart(CartItemDTO cartItemDTO) {
+        ProductDTO productDTO= productService.findById(cartItemDTO.getProductId())
+                .orElseThrow(NotFoundException::new);
         cartService.addProductQty(productDTO, cartItemDTO.getQty());
         return "redirect:/categories";
     }

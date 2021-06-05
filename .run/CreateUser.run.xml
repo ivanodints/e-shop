@@ -1,0 +1,12 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="CreateUser" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
+    <option name="FILE_PATH" value="$PROJECT_DIR$/shop-admin-ui-test/src/test/resources/features/createUser.feature" />
+    <option name="GLUE" value="ru.geekbrains.steps.createNewUserStep" />
+    <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
+    <module name="shop-admin-ui-test" />
+    <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

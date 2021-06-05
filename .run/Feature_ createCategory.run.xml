@@ -1,0 +1,21 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Feature: find_and_delete_Category" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
+    <option name="CUCUMBER_CORE_VERSION" value="4" />
+    <option name="FILE_PATH" value="$PROJECT_DIR$/shop-admin-ui-test/src/test/resources/features/findCategoryAndDelete.feature" />
+    <option name="GLUE" value="ru.geekbrains.steps.findCategoryAndDeleteStep" />
+    <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
+    <module name="shop-admin-ui-test" />
+    <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm4SMFormatter" />
+    <option name="SUGGESTED_NAME" value="Feature: createCategory" />
+    <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="cucumber.api.cli.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

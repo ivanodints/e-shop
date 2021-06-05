@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="RabbitMqMessangerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" singleton="false">
+    <module name="rabbit-mq" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="ru.geekbrains.RabbitMqMessangerApplication" />
+    <option name="PROGRAM_PARAMETERS" value="--user.name=Alice --server.port=8082" />
+    <option name="ALTERNATIVE_JRE_PATH" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
