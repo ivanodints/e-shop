@@ -43,8 +43,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ActiveProfiles("test")
 @TestPropertySource(locations = "classpath:application-test.properties")
 @AutoConfigureMockMvc
-//@SpringBootTest(classes = EshopAdminUiApplication.class)
-@SpringBootTest
+@SpringBootTest(classes = EshopAdminUiApplication.class)
+
 public class ProductAdminControllerTest {
 
     @Autowired
@@ -53,43 +53,43 @@ public class ProductAdminControllerTest {
     @Autowired
     private CategoryRepository categoryRepository;
 
-//    @Autowired
-//    private ProductRepository productRepository;
-//
-//    @Autowired
-//    private PictureRepository pictureRepository;
-//
-//    @Autowired
-//    private ManufacturerRepository manufacturerRepository;
+    @Autowired
+    private ProductRepository productRepository;
+
+    @Autowired
+    private PictureRepository pictureRepository;
+
+    @Autowired
+    private ManufacturerRepository manufacturerRepository;
 
     @BeforeEach
     public void initCategoryRepo() {
         categoryRepository.deleteAllInBatch();
     }
 
-//    @BeforeEach
-//    public void initManufacturerRepo() {
-//        manufacturerRepository.deleteAllInBatch();
-//    }
-
-    @WithMockUser(value = "admin", password = "admin", roles = {"ADMIN"})
-    @Test
-    public void testCategoryCreation() throws Exception{
-        mvc.perform(post("/brand")
-                .contentType(MediaType.APPLICATION_FORM_URLENCODED)
-                .param("id", "-1")
-                .param("title", "Cat")
-                .with(csrf())
-        )
-//                .andExpect(status().is3xxRedirection())
-                .andExpect(view().name("redirect:/admin/categories"));
-
-        Optional<Category> opt = categoryRepository.findOne(Example.of(new Category("Cat")));
-
-        assertTrue(opt.isPresent());
-        assertEquals("Cat", opt.get().getTitle());
-
+    @BeforeEach
+    public void initManufacturerRepo() {
+        manufacturerRepository.deleteAllInBatch();
     }
+
+//    @WithMockUser(value = "admin", password = "admin", roles = {"ADMIN"})
+//    @Test
+//    public void testCategoryCreation() throws Exception{
+//        mvc.perform(post("/brand")
+//                .contentType(MediaType.APPLICATION_FORM_URLENCODED)
+//                .param("id", "-1")
+//                .param("title", "Cat")
+//                .with(csrf())
+//        )
+////                .andExpect(status().is3xxRedirection())
+//                .andExpect(view().name("redirect:/admin/categories"));
+//
+//        Optional<Category> opt = categoryRepository.findOne(Example.of(new Category("Cat")));
+//
+//        assertTrue(opt.isPresent());
+//        assertEquals("Cat", opt.get().getTitle());
+//
+//    }
 
 //    @WithMockUser(value = "admin", password = "admin", roles = {"ADMIN"})
 //    @Test

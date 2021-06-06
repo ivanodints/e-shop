@@ -86,22 +86,22 @@ public class CartControllerTest {
 //    }
 
 
-    @Test
-    public void testAddToCart() throws Exception {
-
-        mvc.perform(post("/cart")
-                .contentType(MediaType.APPLICATION_FORM_URLENCODED)
-                .param("productId",Long.toString(product1.getId()))
-                .param("qty", "2")
-                )
+//    @Test
+//    public void testAddToCart() throws Exception {
+//
+//        mvc.perform(post("/cart")
+//                .contentType(MediaType.APPLICATION_FORM_URLENCODED)
+//                .param("productId",Long.toString(product1.getId()))
+//                .param("qty", "2")
+//                )
 //                .andExpect(status().is3xxRedirection());
-
-                .andExpect(view().name("redirect:/categories"));
+//
+//                .andExpect(view().name("redirect:/categories"));
 
 //        assertFalse(cartService.getLineItems().isEmpty());
 //
 //        verify(cartService).addProductQty(any(),anyInt());
 
 
-    }
+//    }
 }
